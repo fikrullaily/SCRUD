@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title":"Nike",
+        "quantity": 200,
+        "price": 550000
+    },
+    {
+        "id": 2,
+        "title":"converse",
+        "quantity": 200,
+        "price": 450000
+    },
+    {
+        "id": 3,
+        "title":"Adidas",
+        "quantity": 200,
+        "price": 400000
+    },
+    {
+        "id": 4,
+        "title":"Reebok",
+        "quantity": 200,
+        "price": 400000
+    },
+    {
+        "id": 5,
+        "title":"Dior",
+        "quantity": 200,
+        "price": 400000
+    }
+]
