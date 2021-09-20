@@ -13,14 +13,14 @@ const SearchItem = (props) => {
         setSearchTerm(e.target.value);
     }
 
-    return (
+     return (
     <div>
         <div className={styles.item}>
             <input className={styles.search} type="text" placeholder="Search..." 
                 name="search" onChange={handleChange} value={searchTerm} />
         </div>
         
-        {data.filter((item)=> {
+        {data.filter((item)=> {         //kalo data yg kebaca json doang //kalo itemlist eror :((
             if (searchTerm == ""){
                 return item;
             } else if (
@@ -35,17 +35,10 @@ const SearchItem = (props) => {
     );
 };
 
-
 export default SearchItem;
 
 
 
-
-//             {/* <button className={styles.btnSearch} type="submit" 
-//                 onChange={event => {setSearchTerm(event.target.value);}}>
-//                 <img className={styles.icnSearch} src="/search.png" />
-//             </button> */}
-// {/* 
 //             {data.filter((Item)=> {
 //                 if (searchTerm == ""){
 //                     return Item 
