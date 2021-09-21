@@ -7,6 +7,7 @@ import data from "../data-dummy/data.json";
 const SearchItem = (props) => {
 
     const [searchTerm, setSearchTerm] = useState("");
+    const {handleDelete} = props;
    
     const handleChange = (e) =>{
         e.preventDefault();
@@ -29,7 +30,7 @@ const SearchItem = (props) => {
                 return item
             }
             }).map((item) => {
-                return <Item item={item} key={item.id} />;
+                return <Item item={item} key={item.id} handleEdit={handleEdit}/>;
             })}
     </div>
     );
