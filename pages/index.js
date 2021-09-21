@@ -2,16 +2,14 @@ import Head from "next/head";
 import React, { useState, useEffect } from 'react';
 import data from "../data-dummy/data.json";
 import Header from '../component/header';
-import HeadItem from '../component/headitem';
 import Footer from '../component/footer';
-import ItemList from "../component/item/itemlist";
-import Item from "../component/item/item";
+import ItemList from "../component/itemlist";
+import Item from "../component/item";
 import styles from '../styles/Home.module.scss'
+import SearchItem from "../component/itemsearch";
 
 export default function Home() {
   const [itemList, setItemList] = useState(data);
-
-  const [searchTerm, setSearchTerm] = useState('');
 
   const [update, setUpdate] = useState({id: null, status: false});
   const [userInput, setUserInput ] = useState({
@@ -72,13 +70,12 @@ export default function Home() {
       console.log(item);
     };
 
-    const handleDelete = (Item) => {
-      let filterred = itemList.filter((itemList) => itemList !== Item );
+    const handleDelete = (item) => {
+      let filterred = itemList.filter((itemList) => itemList !== item );
       setItemList(filterred);
       console.log(filterred);
     };
-
-
+    
   return (
     <div className={styles.content}>
       <Header />   
@@ -102,40 +99,48 @@ export default function Home() {
         
       </form>
 
-      <HeadItem />
-        
-    <div className={styles.item}>
-      <input className={styles.search} type="text" 
-        placeholder="Search..." name="search" 
-        onChange={event => {
-          setSearchTerm(event.target.value);
-        }} 
-      />
-    </div>
+      <nav className= {styles.headitem}>
+            <h2 className={styles.h2} > List Item of Shoes.So</h2>
+      </nav>
 
-      <div className={styles.form}>
+      <SearchItem />
+      
+      <div className={styles.form} > 
         <ItemList
           Item={Item}
           itemList={itemList}
           handleEdit={handleEdit}
           handleDelete={handleDelete}
           />
-      </div>
-          <Footer />
-
-          {data.filter((Item)=> {
-                if (searchTerm == ""){
-                    return Item 
-                } else if (Item.title.toLowerCase().includes(searchTerm.toLowerCase())){
-                    return Item
-                }
-            }).map((Item, key) => {
-                return (
-                    <div className="user" key={key}>
-                        <p> {Item.title} </p>
-                    </div>
-                );
-      })}
+      </div> 
+      
+    <Footer />
+    
     </div>
+    
   );
 };
+
+
+
+
+{/* <button type="button" onChange={event => {setSearchTerm(event.target.value);}} 
+className={styles.btnSearch}> <img className={styles.img} src="/search.png" /> </button> */}
+
+      
+
+// {data.filter((item)=> {
+//   if (searchTerm == ""){
+//       return item
+//   } else if (item.title.toLowerCase().includes(searchTerm.toLowerCase())){
+//       return item
+//   }
+// }).map((Item, key) => {
+//       return (
+//       <div className="user" key={key}>
+//         <p> {Item.title} </p>
+//         <p> {Item.quantity} </p>
+//         <p> {Item.price} </p>
+//       </div>
+//     );
+// })} 
