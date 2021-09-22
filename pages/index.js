@@ -103,7 +103,6 @@ export default function Home() {
             <h2 className={styles.h2} > List Item of Shoes.So</h2>
       </nav>
 
-      <SearchItem />
       
       <div className={styles.form} > 
         <ItemList
@@ -123,24 +122,3 @@ export default function Home() {
 
 
 
-
-{/* <button type="button" onChange={event => {setSearchTerm(event.target.value);}} 
-className={styles.btnSearch}> <img className={styles.img} src="/search.png" /> </button> */}
-
-      
-
-// {data.filter((item)=> {
-//   if (searchTerm == ""){
-//       return item
-//   } else if (item.title.toLowerCase().includes(searchTerm.toLowerCase())){
-//       return item
-//   }
-// }).map((Item, key) => {
-//       return (
-//       <div className="user" key={key}>
-//         <p> {Item.title} </p>
-//         <p> {Item.quantity} </p>
-//         <p> {Item.price} </p>
-//       </div>
-//     );
-// })} 
